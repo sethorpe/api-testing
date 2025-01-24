@@ -1,0 +1,9 @@
+# Virtual environment
+python_api/env/
+
+# Byte-compiled files
+*.pyc
+__pycache__/
+
+# Test cache
+.python_api/.pytest_cache/

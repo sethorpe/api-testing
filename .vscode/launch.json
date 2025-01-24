@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Debug pytest",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",  // Use pytest as the module to execute
+            "args": [
+                "python_api/tests"  // Path to your tests folder
+            ],
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/python_api/src"  // Ensures source files are accessible
+            },
+            "justMyCode": true
+        }
+    ]
+}
