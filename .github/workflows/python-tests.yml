@@ -40,7 +40,7 @@ jobs:
         run: |
           curl -o allure-commandline.zip -L https://githube.com/allure-framework/allure2/releases/latests/download/allure-commandline.zip
           unzip allure-commandline.zip -d allure-cli
-          export PATH=$PATH:$PWD/allure-cli/bin
+          echo "${PWD}/allure-cli/bin" >> $GITHUB_PATH # Add Allure CLI to PATH
 
       # Step 6: Generate Allure Report
       - name: Generate Allure Report
