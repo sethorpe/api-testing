@@ -40,9 +40,9 @@ jobs:
         run: |
           curl -o allure-commandline.zip -L https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.20.1/allure-commandline-2.20.1.zip
           unzip -o allure-commandline.zip -d allure-cli || (echo "Failed to unzip Allure CLI" && exit 1)
-          ls -lh allure-cli/bin # List extracted contents for debugging
-          chmod +x allure-cli/bin/allure # Ensure the binary is executable
-          echo "${PWD}/allure-cli/bin" >> $GITHUB_PATH # Add Allure CLI to PATH
+          ls -lh allure-cli/allure-2.20.1/bin # List extracted contents for debugging
+          chmod +x allure-cli/allure-2.20.1/bin/allure # Ensure the binary is executable
+          echo "${PWD}/allure-cli/allure-2.20.1/bin" >> $GITHUB_PATH # Add Allure CLI to PATH
       
       # Step 6: Debug PATH and Allure
       - name: Debug PATH
