@@ -7,3 +7,7 @@ __pycache__/
 
 # Test cache
 .python_api/.pytest_cache/
+
+# Ignore Allure results and reports
+allure-results/
+allure-report/
