@@ -11,20 +11,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Check out repo
       - name: Check out repository
         uses: actions/checkout@v2
 
+      # Step 2: Set up Python environment
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.12'
       
+      # Step 3: Install dependencies
       - name: Install dependencies
         run: |
-          cd python
-          pip install -r requirements.txt
+          python -m pip install --upgrade pip
+          pip install -r python_api/requirements.txt
       
+      # Step 4: Run tests
       - name: Run tests
+        env: # Set PYTHONPATH to ensure imports from src work
+          PYTHONPATH: python_api/src
         run: |
-          cd python
-          pytest
+          pytest python_api/tests
