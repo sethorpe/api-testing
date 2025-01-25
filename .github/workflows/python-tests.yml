@@ -28,21 +28,28 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r python_api/requirements.txt
       
-      # Step 4: Run tests
-      - name: Run tests
-        env: # Set PYTHONPATH to ensure imports from src work
-          PYTHONPATH: python_api/src
-        run: |
-          pytest python_api/tests
+      # Step 4: Set up Java (Required for Allure CLI)
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin' # Use the OpenJDK distribution
+          java-version: '11'
       
       # Step 5: Install Allure CLI
       - name: Install Allure CLI
         run: |
-          curl -o allure-commandline.zip -L https://github.com/allure-framework/allure2/releases/latest/download/allure-commandline.zip
+          curl -o allure-commandline.zip -L https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.20.1/allure-commandline-2.20.1.zip
           unzip allure-commandline.zip -d allure-cli
           echo "${PWD}/allure-cli/bin" >> $GITHUB_PATH # Add Allure CLI to PATH
 
-      # Step 6: Generate Allure Report
+      # Step 6: Run tests
+      - name: Run tests
+        env: # Set PYTHONPATH to ensure imports from src work
+          PYTHONPATH: python_api/src
+        run: |
+          pytest python_api/tests --alluredir=allure-results
+
+      # Step 7: Generate Allure Report
       - name: Generate Allure Report
         if: always() # Ensure this runs even if tests fail
         run: |
