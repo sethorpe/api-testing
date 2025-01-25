@@ -38,7 +38,7 @@ jobs:
       # Step 5: Install Allure CLI
       - name: Install Allure CLI
         run: |
-          curl -o allure-commandline.zip -L https://githube.com/allure-framework/allure2/releases/latests/download/allure-commandline.zip
+          curl -o allure-commandline.zip -L https://github.com/allure-framework/allure2/releases/latests/download/allure-commandline.zip
           unzip allure-commandline.zip -d allure-cli
           echo "${PWD}/allure-cli/bin" >> $GITHUB_PATH # Add Allure CLI to PATH
 
