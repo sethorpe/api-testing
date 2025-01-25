@@ -2,7 +2,7 @@ name: Python Tests
 
 on: 
   push: 
-    branches: ["*"]
+    branches: ["feature/allure-reports"]
   pull_request:
     branches: ["*"]
   workflow_dispatch: 
