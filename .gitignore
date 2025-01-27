@@ -11,3 +11,6 @@ __pycache__/
 # Ignore Allure results and reports
 allure-results/
 allure-report/
+
+# Logs
+*.log
