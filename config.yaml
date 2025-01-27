@@ -1,0 +1,3 @@
+logging:
+  level: DEBUG
+  file: api_test_logs.log
