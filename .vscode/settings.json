@@ -1,9 +1,9 @@
 {
     "python.testing.pytestEnabled": true,
     "python.testing.unittestEnabled": false,
-    "python.testing.nosetestsEnabled": false,
     "python.testing.pytestArgs": [
         "python_api/tests"
     ],
-    "python.defaultInterpreterPath": "${workspaceFolder}/python_api/env/bin/python"  // Adjust for your environment
+    "python.testing.autoTestDiscoverOnSaveEnabled": true,
+    "python.defaultInterpreterPath": "${workspaceFolder}/python_api/env/bin/python"
 }
